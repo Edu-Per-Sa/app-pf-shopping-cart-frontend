@@ -7,7 +7,7 @@ import classes from './Products.module.css';
 import { uiActions } from '../store/ui-slice';
 import Error from '../Error/Error';
 
-const urlGetProducts = 'https://app-portfolio-ba2d4-default-rtdb.europe-west1.firebasedatabase.app/app-shopping-cart.json';
+const urlGetProducts = 'https://app-portfolio-ba2d4-default-rtdb.europe-west1.firebasedatabase.app/app-shopping-cart/products-list.json';
 
 let initialProducts = [];
 
@@ -33,8 +33,7 @@ const Products = (props) => {
       }
 
       const dataResponse = await response.json();
-      const dataProducts = dataResponse['products-list'];
-      setDataProducts(dataProducts);
+      setDataProducts(dataResponse);
       dispatch(uiActions.setFetchingProducts(false));
     }
 
